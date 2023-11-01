@@ -1,19 +1,17 @@
-from dcmotor import DCMotor
+from dc_motor_libary import Motor
 from machine import Pin, PWM
 import machine
 from time import sleep
-#dc motor setup
+
 frequency = 15000     
 pin1 = Pin(5, Pin.OUT) # the pin that connected to in1
 pin2 = Pin(4, Pin.OUT) # the pin that connected to in2
-enable = PWM(Pin(2), frequency) # enable pin
-dc_motor = DCMotor(pin1, pin2, enable)
-dc_motor = DCMotor(pin1, pin2, enable, 350, 1023)
+enable = PWM(Pin(2), 15000) # enable pin
 
-#code
-dc_motor.forward(100) #100 is the speed of the motor
-sleep(3)
-dc_motor.stop() # stoping the motor
+motor = Motor(pin1, pin2, enable, False, False, False) # setup 1 motor, if 2: change the first false to pin1 of motor b, and the second and the third falses as well
 
-# this code will start the motor for 3 seconds and after that it will stop it.
-# you can replace the "forward" method to "backwards" too for changing the direction.
+
+speed = 100 # the speed of the motor is between -100 to 100. a negative number is a moving backward motor. if 0 the motor will stop
+motor.start(speed, True) # The True value is the indicator of whether you are talking on the first motor or the second (in this code I didn't set the second motor). True = first motor. False = second motor
+
+# This code will start the motor and it will never stop it
