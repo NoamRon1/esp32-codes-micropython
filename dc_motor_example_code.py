@@ -22,5 +22,3 @@ motor.timemove(speed, during) # this code will start the motor for 10 sec and wi
 #second_speed = 50
 #two_motors.timemove(speed, second_speed, during) # this will start one of the motors at 100 speed and the other for 50, for 10 sec and will stop it after
 
-
-# This code will start the motor and it will never stop it
