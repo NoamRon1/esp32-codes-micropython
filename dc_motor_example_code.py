@@ -1,7 +1,8 @@
-from dc_motor_libary import Motor
+from dc_motor_libary import Single_Motor, Two_Motors
 from machine import Pin, PWM
 import machine
 from time import sleep
+import time
 
 frequency = 15000     
 pin1 = Pin(5, Pin.OUT) # the pin that connected to in1
